@@ -1,0 +1,14 @@
+*.asm
+*.hex
+*.ihx
+*.lst
+*.map
+*.mem
+*.rel
+*.rst
+*.sym
+
+
+.vscode/
+
+.DS_STORE
