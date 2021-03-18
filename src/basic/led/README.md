@@ -1,4 +1,4 @@
-## LED 相关练习 
+## LED
 
 ### 基本电路
 ![电路图](./images/circuit.png)

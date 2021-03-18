@@ -7,8 +7,11 @@
 *.rel
 *.rst
 *.sym
+*.lk
 
 
 .vscode/
 
 .DS_STORE
+
+.idea/
