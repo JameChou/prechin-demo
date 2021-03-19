@@ -43,3 +43,4 @@ IO口定义 `#define LED P2_0` keil为 `sbit LED = P2^0`
 2. 蜂鸣器 -> [code](./src/basic/beep/README.md)
 3. 继电器 -> [code](./src/basic/relay/README.md)
 4. 数码管 -> [code](./src/basic/ds/README.md)
+5. 独立按键 -> [code](./src/basic/indbtn/README.md)
