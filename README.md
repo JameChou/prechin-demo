@@ -42,3 +42,4 @@ IO口定义 `#define LED P2_0` keil为 `sbit LED = P2^0`
 1. 点亮第一个LED -> [code](./src/basic/led/README.md)
 2. 蜂鸣器 -> [code](./src/basic/beep/README.md)
 3. 继电器 -> [code](./src/basic/relay/README.md)
+4. 数码管 -> [code](./src/basic/ds/README.md)
