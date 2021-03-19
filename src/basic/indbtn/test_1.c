@@ -19,6 +19,7 @@ void main()
     const u8 positionArr[] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07};
     const u8 numberArr[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F};
 
+    u16 t = BTN;
     while (1) {
         if (BTN < 0xFF) {
             delay(1000);
@@ -26,8 +27,8 @@ void main()
                 // 表明按键被按下了
                 int j, num;
                 for (j = 0; j < 8; j++) {
-                    num = BTN % 2;
-                    BTN /= 2;
+                    num = t % 2;
+                    t /= 2;
 
                     // 表明是第几位被按下
                     if (num == 0) {
