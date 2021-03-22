@@ -42,11 +42,12 @@ IO口定义 `#define LED P2_0` keil为 `sbit LED = P2^0`
 中断函数 `void INT0_ISR() __interrupt 0` keil为`void INT0_ISR() interrupt`
 
 ### 基础
-1. 点亮第一个LED -> [code](./src/basic/led/README.md)
-2. 蜂鸣器 -> [code](./src/basic/beep/README.md)
-3. 继电器 -> [code](./src/basic/relay/README.md)
-4. 数码管 -> [code](./src/basic/ds/README.md)
-5. 独立按键 -> [code](./src/basic/indbtn/README.md)
-6. 组合按键 -> [code](./src/basic/unibtn/README.md)
-7. IO扩展(并转串) -> [code](./src/basic/p2s/README.md)
-8. IO扩展(串转并) -> [code](./src/basic/s2p/README.md)
+1. [点亮第一个LED](./src/basic)
+2. [蜂鸣器](./src/basic/beep)
+3. [继电器](./src/basic/relay)
+4. [数码管](./src/basic/ds)
+5. [独立按键](./src/basic/indbtn)
+6. [组合按键](./src/basic/unibtn)
+7. [IO扩展并转串](./src/basic/p2s)
+8. [IO扩展串转并](./src/basic/s2p)
+9. [LED矩阵](./src/basic/ledmatrix)
