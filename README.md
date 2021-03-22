@@ -42,7 +42,7 @@ IO口定义 `#define LED P2_0` keil为 `sbit LED = P2^0`
 中断函数 `void INT0_ISR() __interrupt 0` keil为`void INT0_ISR() interrupt`
 
 ### 基础
-1. [点亮第一个LED](./src/basic)
+1. [点亮第一个LED](./src/basic/led)
 2. [蜂鸣器](./src/basic/beep)
 3. [继电器](./src/basic/relay)
 4. [数码管](./src/basic/ds)
@@ -52,3 +52,4 @@ IO口定义 `#define LED P2_0` keil为 `sbit LED = P2^0`
 8. [IO扩展串转并](./src/basic/s2p)
 9. [LED矩阵](./src/basic/ledmatrix)
 10. [五线四项步进电机](./src/basic/dcmotor)
+11. [步进电机](./src/basic/steppingmotor)
