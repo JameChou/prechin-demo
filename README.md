@@ -51,3 +51,4 @@ IO口定义 `#define LED P2_0` keil为 `sbit LED = P2^0`
 7. [IO扩展并转串](./src/basic/p2s)
 8. [IO扩展串转并](./src/basic/s2p)
 9. [LED矩阵](./src/basic/ledmatrix)
+10. [五线四项步进电机](./src/basic/dcmotor)
