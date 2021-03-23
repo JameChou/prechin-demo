@@ -54,3 +54,4 @@ IO口定义 `#define LED P2_0` keil为 `sbit LED = P2^0`
 10. [五线四项步进电机](./src/basic/dcmotor)
 11. [步进电机](./src/basic/steppingmotor)
 12. [中断系统介绍](./src/basic/interrupt)
+13. [外部中断](./src/basic/outinterrupt)
