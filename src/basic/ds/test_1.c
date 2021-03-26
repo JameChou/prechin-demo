@@ -25,34 +25,33 @@ typedef unsigned int u16;
 // 1001 0000 9
 #define NINE 0x90
 
-void delay(u16 delayParam)
+void delay(u16 delay_param)
 {
-    while(delayParam--);
+    while(delay_param--);
 }
 
 void main()
 {
-    while (1)
-    {
+    while (1) {
         DS = ZERO;
-        delay(5000000);
+        delay(50000);
         DS = ONE;
-        delay(5000000);
+        delay(50000);
         DS = TWO;
-        delay(5000000);
+        delay(50000);
         DS = THREE;
-        delay(5000000);
+        delay(50000);
         DS = FOUR;
-        delay(5000000);
+        delay(50000);
         DS = FIVE;
-        delay(5000000);
+        delay(50000);
         DS = SIX;
-        delay(5000000);
+        delay(50000);
         DS = SEVEN;
-        delay(5000000);
+        delay(50000);
         DS = EIGHT;
-        delay(5000000);
+        delay(50000);
         DS = NINE;
-        delay(5000000);
+        delay(50000);
     }
 }

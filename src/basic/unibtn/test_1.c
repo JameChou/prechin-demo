@@ -6,11 +6,13 @@ typedef unsigned char u8;
 #define DS P0
 #define UNIBTN P2
 
-void delay(u16 delayParam) {
-    while (delayParam--);
+void delay(u16 delay_param)
+{
+    while (delay_param--);
 }
 
-void main() {
+void main()
+{
     const u8 DS_HEX_ARRAY[] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90, 0x88, 0x83, 0xC6, 0xA1, 0x86,
                                0x8E, 0xFF};
 

@@ -6,19 +6,21 @@
 #define RCLK P3_5
 #define SER P3_4
 
-void delay(uint delayParam) {
-    while (delayParam--);
+void delay(uint delay_param)
+{
+    while (delay_param--);
 }
 
-void writeHc595ByteData(uchar serData) {
+void write_HC595_byte_data(uchar ser_data)
+{
     SRCLK = 1;
     RCLK = 1;
 
     int i;
 
     for (i=0; i<8; i++) {
-        SER = serData >> 7;
-        serData <<= 1;
+        SER = ser_data >> 7;
+        ser_data <<= 1;
 
         SRCLK = 0;
         _nop_();
@@ -32,13 +34,14 @@ void writeHc595ByteData(uchar serData) {
     RCLK = 1;
 }
 
-void main() {
+void main()
+{
     uchar ledNum;
 
     ledNum = 0xFE;
 
     while (1) {
-        writeHc595ByteData(ledNum);
+        write_HC595_byte_data(ledNum);
         ledNum = rol(ledNum, 1);
         delay(50000);
     }

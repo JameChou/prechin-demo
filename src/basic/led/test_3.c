@@ -5,9 +5,9 @@ typedef unsigned int u16;
 
 #define LED P0
 
-void delay(u16 delayParam) 
+void delay(u16 delay_param)
 {
-    while (delayParam--);
+    while (delay_param--);
 }
 
 void main()

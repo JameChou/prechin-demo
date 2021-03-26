@@ -2,10 +2,10 @@
 
 #define LED P0_0
 
-void delay(int delayParam)
+void delay(int delay_param)
 {
-   while (delayParam > 0) {
-      delayParam--;
+   while (delay_param > 0) {
+      delay_param--;
    }
 }
 

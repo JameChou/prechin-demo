@@ -3,7 +3,8 @@
 
 #define LED P2_0
 
-void timer0Init() {
+void timer0_init()
+{
     TMOD |= 0x01;
     TH0 = 0xFC;
     TL0 = 0x18;
@@ -13,12 +14,14 @@ void timer0Init() {
     TR0 = 1;
 }
 
-void main() {
-    timer0Init();
+void main()
+{
+    timer0_init();
     while (1);
 }
 
-void timer0() __interrupt 1 {
+void timer0() __interrupt 1
+{
     static uint i;
     TH0 = 0xFC;
     TL0 = 0x18;

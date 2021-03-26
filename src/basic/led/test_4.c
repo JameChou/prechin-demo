@@ -8,9 +8,9 @@ typedef unsigned int u16;
 #define rol(value, bits) ((value << bits) | (value >> (sizeof(value)*8 - bits)))
 #define ror(value, bits) ((value >> bits) | (value << (sizeof(value)*8 - bits)))
 
-void delay(u16 delayParam)
+void delay(u16 delay_param)
 {
-    while(delayParam--);
+    while(delay_param--);
 }
 
 void main()

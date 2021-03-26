@@ -10,7 +10,8 @@ typedef unsigned char uchar;
 
 #define _nop_() __asm nop __endasm
 
-uchar read72HC165(void) {
+uchar read_72HC165(void)
+{
     uchar indata, i;
 
     LC = 0;
@@ -29,15 +30,16 @@ uchar read72HC165(void) {
     return indata;
 }
 
-void main() {
-    uchar h165Value;
+void main()
+{
+    uchar h165_value;
 
     LED = 0xFF;
 
     while (1) {
-        h165Value = read72HC165();
-        if (h165Value != 0xFF) {
-            LED = h165Value;
+        h165_value = read_72HC165();
+        if (h165_value != 0xFF) {
+            LED = h165_value;
         }
     }
 

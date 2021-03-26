@@ -5,11 +5,13 @@
 #define RCK P3_5
 #define SER P3_4
 
-void delay(uint delayParam) {
-    while (delayParam--);
+void delay(uint delay_param)
+{
+    while (delay_param--);
 }
 
-void writeHC595Data(uchar data1, uchar data2) {
+void write_HC595_data(uchar data1, uchar data2)
+{
     RCLK = 1;
     RCK = 1;
 
@@ -41,13 +43,14 @@ void writeHC595Data(uchar data1, uchar data2) {
     RCK = 1;
 }
 
-void main() {
+void main()
+{
     uchar data1, data2;
     data1 = 0xFE;
     data2 = 0x01;
 
     while (1) {
-        writeHC595Data(data1, data2);
+        write_HC595_data(data1, data2);
         delay(100);
     }
 }

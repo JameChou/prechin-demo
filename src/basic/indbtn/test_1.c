@@ -7,17 +7,17 @@ typedef unsigned char u8;
 #define POSITION_C P0
 #define DS P1
 
-void delay(u16 delayParam)
+void delay(u16 delay_param)
 {
-    while(delayParam--);
+    while(delay_param--);
 }
 
 void main()
 {
     u16 i = 0;
-    int displayNum[] = {0, 0, 0, 0, 0, 0, 0, 0};
-    const u8 positionArr[] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07};
-    const u8 numberArr[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F};
+    int display_num[] = {0, 0, 0, 0, 0, 0, 0, 0};
+    const u8 position_arr[] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07};
+    const u8 number_arr[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F};
 
     u16 t = BTN;
     while (1) {
@@ -32,9 +32,9 @@ void main()
 
                     // 表明是第几位被按下
                     if (num == 0) {
-                        int dnum = displayNum[j];
+                        int dnum = display_num[j];
                         dnum = dnum >= 9 ? 0 : dnum + 1;
-                        displayNum[j] = dnum;
+                        display_num[j] = dnum;
                     }
                 }
             }
@@ -44,8 +44,8 @@ void main()
 
         // 显示
         for (i=0; i<=7; i++) {
-            POSITION_C = positionArr[i];
-            DS = numberArr[displayNum[i]];
+            POSITION_C = position_arr[i];
+            DS = number_arr[displayNum[i]];
             delay(100);
         }
     }

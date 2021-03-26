@@ -5,16 +5,15 @@ typedef unsigned int u16;
 
 #define BEEP P0_5
 
-void delay(u16 delayParam)
+void delay(u16 delay_param)
 {
-    while(delayParam--);
+    while(delay_param--);
 }
 
 void main()
 {
     BEEP = 1;
-    while (1)
-    {
+    while (1) {
         BEEP = !BEEP;
         delay(10);
     }

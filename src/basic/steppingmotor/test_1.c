@@ -6,11 +6,13 @@
 #define MOTOC P1_2
 #define MOTOD P1_3
 
-void delay(uint delayParam) {
-    while (delayParam--);
+void delay(uint delay_param)
+{
+    while (delay_param--);
 }
 
-void main() {
+void main()
+{
     P1 = 0x00;
 
     while (1) {

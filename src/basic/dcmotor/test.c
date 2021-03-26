@@ -3,8 +3,8 @@
 
 #define MOTO P1_0
 
-void delay(uint delayParam) {
-    while (delayParam--);
+void delay(uint delay_param) {
+    while (delay_param--);
 }
 
 void main() {
