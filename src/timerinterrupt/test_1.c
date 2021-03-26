@@ -1,5 +1,5 @@
 #include <8052.h>
-#include "../../e51.h"
+#include "lib_jce51.h"
 
 #define LED P2_0
 

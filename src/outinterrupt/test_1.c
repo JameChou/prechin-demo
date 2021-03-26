@@ -1,13 +1,8 @@
 #include <8052.h>
-#include "../../e51.h"
+#include "lib_jce51.h"
 
 #define LED P2_0
 #define K3 P3_2
-
-void delay(uint delay_param)
-{
-    while (delay_param--);
-}
 
 void int0_init()
 {

@@ -1,13 +1,10 @@
-#include "../../e51.h"
 #include <8052.h>
+#include "lib_jce51.h"
 
 #define MOTO P1_0
 
-void delay(uint delay_param) {
-    while (delay_param--);
-}
-
-void main() {
+void main()
+{
     int i;
 
     MOTO = 0;

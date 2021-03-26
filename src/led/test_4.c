@@ -1,23 +1,13 @@
 #include <8052.h>
-
-typedef unsigned char u8;
-typedef unsigned int u16;
+#include "lib_jce51.h"
 
 #define LED P0
 
-#define rol(value, bits) ((value << bits) | (value >> (sizeof(value)*8 - bits)))
-#define ror(value, bits) ((value >> bits) | (value << (sizeof(value)*8 - bits)))
-
-void delay(u16 delay_param)
-{
-    while(delay_param--);
-}
-
 void main()
 {
-    u16 i;
+    int i;
     // 1111 1110
-    u8 value = 0xFE;
+    uchar value = 0xFE;
     while(1) {
         for (i=0; i<7; i++) {
             value = rol(value, 1);

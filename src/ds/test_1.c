@@ -1,6 +1,5 @@
 #include <8052.h>
-
-typedef unsigned int u16;
+#include "lib_jce51.h"
 
 #define DS P0
 
@@ -24,11 +23,6 @@ typedef unsigned int u16;
 #define EIGHT 0x80
 // 1001 0000 9
 #define NINE 0x90
-
-void delay(u16 delay_param)
-{
-    while(delay_param--);
-}
 
 void main()
 {

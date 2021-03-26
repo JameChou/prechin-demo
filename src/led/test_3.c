@@ -1,18 +1,11 @@
 #include <8052.h>
-
-typedef unsigned char u8;
-typedef unsigned int u16;
+#include "lib_jce51.h"
 
 #define LED P0
 
-void delay(u16 delay_param)
-{
-    while (delay_param--);
-}
-
 void main()
 {
-    u8 i;
+    int i;
     LED = 0x01;
 
     delay(50000);

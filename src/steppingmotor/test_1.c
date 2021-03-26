@@ -1,15 +1,10 @@
 #include <8052.h>
-#include "../../e51.h"
+#include "lib_jce51.h"
 
 #define MOTOA P1_0
 #define MOTOB P1_1
 #define MOTOC P1_2
 #define MOTOD P1_3
-
-void delay(uint delay_param)
-{
-    while (delay_param--);
-}
 
 void main()
 {

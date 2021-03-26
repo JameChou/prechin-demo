@@ -1,25 +1,18 @@
 #include <8052.h>
-
-typedef unsigned int u16;
-typedef unsigned char u8;
+#include "lib_jce51.h"
 
 #define BTN P2
 #define POSITION_C P0
 #define DS P1
 
-void delay(u16 delay_param)
-{
-    while(delay_param--);
-}
-
 void main()
 {
-    u16 i = 0;
+    uint i = 0;
     int display_num[] = {0, 0, 0, 0, 0, 0, 0, 0};
-    const u8 position_arr[] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07};
-    const u8 number_arr[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F};
+    const uchar position_arr[] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07};
+    const uchar number_arr[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F};
 
-    u16 t = BTN;
+    uchar t = BTN;
     while (1) {
         if (BTN < 0xFF) {
             delay(1000);

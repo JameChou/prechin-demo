@@ -1,14 +1,10 @@
 #include <8052.h>
-
-typedef unsigned int uint;
-typedef unsigned char uchar;
+#include "lib_jce51.h"
 
 #define LC P1_0
 #define CLK P1_2
 #define QH P1_4
 #define LED P3
-
-#define _nop_() __asm nop __endasm
 
 uchar read_72HC165(void)
 {

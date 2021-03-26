@@ -1,14 +1,9 @@
 #include <8052.h>
-#include "../../e51.h"
+#include "lib_jce51.h"
 
 #define RCLK P3_6
 #define RCK P3_5
 #define SER P3_4
-
-void delay(uint delay_param)
-{
-    while (delay_param--);
-}
 
 void write_HC595_data(uchar data1, uchar data2)
 {

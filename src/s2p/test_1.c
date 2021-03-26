@@ -1,15 +1,10 @@
 #include <8052.h>
-#include "../../e51.h"
+#include "lib_jce51.h"
 
 // 位移寄存器
 #define SRCLK P3_6
 #define RCLK P3_5
 #define SER P3_4
-
-void delay(uint delay_param)
-{
-    while (delay_param--);
-}
 
 void write_HC595_byte_data(uchar ser_data)
 {
