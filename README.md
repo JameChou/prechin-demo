@@ -1,4 +1,4 @@
-##  普中单片机学习代码
+##  89C52RC-demo
 
 ```shell
 sdcc your_location.c
@@ -32,29 +32,20 @@ cd stcgal
 sudo ./setup.py install
 ```
 
-### 环境区别
-头文件 sdcc 为<8051.h>或<8052.h> 在windows keil中为<reg51.h>和<reg52.h>
-
-IO端口定义为 P2_0 而windows keil为 P2^0
-
-IO口定义 `#define LED P2_0` keil为 `sbit LED = P2^0`
-
-中断函数 `void INT0_ISR() __interrupt 0` keil为`void INT0_ISR() interrupt`
-
 ### 基础
-1. [点亮第一个LED](./src/basic/led)
-2. [蜂鸣器](./src/basic/beep)
-3. [继电器](./src/basic/relay)
-4. [数码管](./src/basic/ds)
-5. [独立按键](./src/basic/indbtn)
-6. [组合按键](./src/basic/unibtn)
-7. [IO扩展并转串](./src/basic/p2s)
-8. [IO扩展串转并](./src/basic/s2p)
-9. [LED矩阵](./src/basic/ledmatrix)
-10. [五线四项步进电机](./src/basic/dcmotor)
-11. [步进电机](./src/basic/steppingmotor)
-12. [中断系统介绍](./src/basic/interrupt)
-13. [外部中断](./src/basic/outinterrupt)
-14. [定时器中断](./src/basic/timerinterrupt)
-15. [ADC](./src/basic/adc)
-16. [DAC](./src/basic/dac)
+1. [点亮第一个LED](src/led)
+2. [蜂鸣器](src/beep)
+3. [继电器](src/relay)
+4. [数码管](src/ds)
+5. [独立按键](src/indbtn)
+6. [组合按键](src/unibtn)
+7. [IO扩展并转串](src/p2s)
+8. [IO扩展串转并](src/s2p)
+9. [LED矩阵](src/ledmatrix)
+10. [五线四项步进电机](src/dcmotor)
+11. [步进电机](src/steppingmotor)
+12. [中断系统介绍](src/interrupt)
+13. [外部中断](src/outinterrupt)
+14. [定时器中断](src/timerinterrupt)
+15. [ADC](src/adc)
+16. [DAC](src/dac)

@@ -9,6 +9,8 @@
 *.sym
 *.lk
 
+*.lib
+
 
 .vscode/
 
@@ -17,3 +19,5 @@
 .idea/
 
 cmake-build-debug/
+
+.pio/
