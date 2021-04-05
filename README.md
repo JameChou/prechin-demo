@@ -6,8 +6,7 @@ packiph your_iph_file > your_hex.hex
 stcgal -P stc89 -p /dev/tty.<your_port> <name.ihx>
 ```
 
-我使用的是STC89C516 MCU，这块芯片在stcgal工具中并不支持，所以需要把ihx文件转换成hex文件，然后再从windows中去烧制。否则无法识别MCU。
-如果想在macOS下面正确开发，请另外再购买STC89C52RC这块芯片，然后再做开发，就可以正确的烧制程序至单片机中了。成本并不贵。
+**注意芯片如果不是89C52RC**: stcgal是无法烧制程序进入芯片的。
 
 ### 环境准备(Macos)
 1. 下载CH34* USB 驱动 [下载地址](http://www.wch.cn/download/CH341SER_MAC_ZIP.html) 并安装，重启系统。
@@ -32,6 +31,24 @@ cd stcgal
 sudo ./setup.py install
 ```
 
+4. 编译Lib
+```makefile
+# /lib/Makefile
+
+default-target: all
+
+all:
+		for n in $(LIB_DIRS); do cd $$n && make all && cd ..; done
+```
+
+5. 编译运行某个程序
+
+进入相应目录查看Makefile文件来进行编译，亦可手动编译，但是前置条件需要把lib目录的相关先进行编译处理。
+
+6. 串口通信
+
+使用 [COMTool](https://github.com/Neutree/COMTool) 来进行测试。
+
 ### 基础
 1. [点亮第一个LED](src/led)
 2. [蜂鸣器](src/beep)
@@ -49,3 +66,4 @@ sudo ./setup.py install
 14. [定时器中断](src/timerinterrupt)
 15. [ADC](src/adc)
 16. [DAC](src/dac)
+17. [串口通信](src/serial)
