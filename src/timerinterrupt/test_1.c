@@ -3,29 +3,21 @@
 #include "lib_jce51.h"
 #include "lib_indbtn.h"
 
-static uint key_num, led_mod;
+static uint led_mod;
 
-#define LED P0
+#define P2_PORT P2
 
 void main()
 {
-    // 初始化定时器
+    led_mod = 1;
+    uint check_btn = 100;
     timer_0_initer();
-    key_num = 0;
-    led_mod = 0;
-    P0 = 0xFE;
+    P2_PORT &= 0xFE;
 
-    while (1) {
-        key_num = check_ind_btn_index_p1();
-
-        if (key_num == 0) {
-            led_mod = 0;
-            continue;
-        }
-
-        if (key_num == 1) {
-            led_mod = 1;
-            continue;
+    while(1) {
+        check_btn = check_ind_btn_index();
+        if (check_btn < 100) {
+            led_mod = check_btn;
         }
     }
 }
@@ -41,17 +33,20 @@ void timer_interrupt_method() __interrupt 1
     TL0 = 0x18;
     i++;
 
-    if (i >= 500) {
-        switch (key_num) {
-            case 0:
-                LED = rol(LED, 1);
-                break;
-            case 1:
-                LED = ror(LED, 1);
-                break;
-            default:
-                LED = 0xFF;
-                break;
+    if (i >= 1000) {
+        if (led_mod == 0) {
+            if (P2_PORT == 0xEF) {
+                P2_PORT &= 0xFE;
+            } else {
+                P2_PORT = rol(P2_PORT, 1);
+            }
+        } else {
+            if (P2_PORT == 0xFE) {
+                P2_PORT &= 0xEF;
+            } else {
+                P2_PORT = ror(P2_PORT, 1);
+            }
         }
+        i = 0;
     }
 }
