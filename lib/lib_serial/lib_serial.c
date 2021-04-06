@@ -20,6 +20,10 @@ void uart_init() // 4800波特率
     // 开启定时/计数器1
     TMOD &= 0x0F;
     TMOD |= 0x20;
+
+    // 打开总中断以及串口中断
+    EA = 1;
+    ES = 1;
 }
 
 void uart_send_byte(unsigned char send_byte)
@@ -28,5 +32,5 @@ void uart_send_byte(unsigned char send_byte)
     // 等待上次已经发送完成才进行处理
     while (TI == 0);
     // 查看芯片手册文档，这里需要软件手动把T1进行更新标志位
-    T1 = 0;
+    TI = 0;
 }

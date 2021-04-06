@@ -5,6 +5,7 @@
 void main()
 {
     uart_init();
+    uart_send_byte(0x69);
     while (1) {
     }
 }
@@ -12,8 +13,12 @@ void main()
 // uart中断优先级为4 这里需要设置
 void uart_routine() __interrupt 4
 {
+
+    P3_7 = 0;
     // 表示接收数据
-    if (RI == 0) {
-        P0 = SBUF;
+    if (RI == 1) {
+        P0 = ~SBUF;
+
+        RI = 0;
     }
 }

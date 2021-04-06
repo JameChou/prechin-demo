@@ -64,3 +64,50 @@ TTL电平以及RS232电平这两种表达方式传输的有效距离并不长，
 
 ### 串口通信相关寄存器
 ![串口通信相关寄存器](./images/register_serial.png)
+
+### 电路原理图相接
+![电路图](./images/circuit.png)
+![短接图](./images/dj.jpeg)
+
+### 连接图
+![接线图](./images/connection.jpeg)
+
+### 关键代码
+
+```c
+// /lib/lib_serial/lib_serial.c
+void uart_init() // 4800波特率
+{
+  // SCON -> SM0/FE(0) SM1(1) SM2(0) REN(1)
+  SCON = 0x50;
+  // PCON -> SMOD(1) SMOD0(0) 0 0 0 0
+  PCON = 0x80;
+  // 8位自动重载寄存器 初始值设置 计算方式为
+  // 最大为256(0xFF + 1)，这里设置为243 相差13，在12MHz的晶振系统下为13us
+  // 则为1/13us = 0.07962MHz(溢出率） / 16 = 0.004807MHz = 4807Hz（波特率）
+  TL1 = 0xF3;
+  TH1 = 0xF3;
+
+  ET1 = 0; // 关闭定时器中断只使用期计数模式
+  TR1 = 1;
+
+  // 开启定时/计数器1
+  TMOD &= 0x0F;
+  TMOD |= 0x20;
+
+  // 打开总中断以及串口中断
+  EA = 1;
+  ES = 1;
+}
+```
+
+上面为初始化代码，关键点为**波特率**的计算。
+
+```c
+void uart_routine() __interrupt 4
+{
+    // your code
+}
+```
+
+上面为断口中断相关方法，一定要注意`interrupt 4`这个要去查芯片手册，具体是哪一个标号。
