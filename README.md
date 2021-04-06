@@ -67,3 +67,4 @@ all:
 15. [ADC](src/adc)
 16. [DAC](src/dac)
 17. [串口通信](src/serial)
+18. [LCD1602](src/lcd1602)
