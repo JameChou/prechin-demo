@@ -1,8 +1,8 @@
 #include <8052.h>
 #include "lib_ds1302.h"
 
-// command 读写数组  -> 顺序是秒 分 时 天 月 年 星期
-unsigned char command_array[] = {0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C};
+// command 读写数组  -> 顺序是年 月 日 时 分 秒
+unsigned char command_array[] = {0x0C, 0x08, 0x06, 0x04, 0x02, 0x00};
 
 unsigned char dec_2_bcd(unsigned char dec)
 {

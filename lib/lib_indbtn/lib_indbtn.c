@@ -9,19 +9,35 @@
  */
 uint check_ind_btn_index()
 {
-    if (P3_0 == 0) {
-        delay(500);
+    if (P3_3 == 0) {
+        delay(1000);
 
-        if (P3_0 == 0) {
-            return 0;
-        }
+        while (P3_3 == 0);
+
+        return 0;
     }
 
-    if (P3_1 == 0) {
-        delay(500);
-        if (P3_1 == 0) {
-            return 1;
-        }
+    if (P3_4 == 0) {
+        delay(1000);
+
+        while (P3_3 == 0);
+        return 1;
+    }
+
+    if (P3_5 == 0) {
+        delay(1000);
+
+        while (P3_5 == 0);
+
+        return 2;
+    }
+
+    if (P3_6 == 0) {
+        delay(1000);
+
+        while (P3_6 == 0);
+
+        return 3;
     }
 
     return 100;
