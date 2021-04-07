@@ -68,3 +68,4 @@ all:
 16. [DAC](src/dac)
 17. [串口通信](src/serial)
 18. [LCD1602](src/lcd1602)
+19. [DS1302时钟](src/ds1302)
