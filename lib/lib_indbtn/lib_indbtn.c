@@ -20,7 +20,7 @@ uint check_ind_btn_index()
     if (P3_4 == 0) {
         delay(1000);
 
-        while (P3_3 == 0);
+        while (P3_4 == 0);
         return 1;
     }
 
