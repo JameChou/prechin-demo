@@ -41,6 +41,9 @@
 ![I2C电路规范](./images/i2c_circuit.png)
 
 ### I2C时序结构
+
+***一定要注意无论是接还是写都是SCL高电平期间才可以做!!!!!***
+
 * **起始条件**: SCL高电平期间，SDA从高电平切换到低电平
 * **终止条件**: SCL高电平期间，SDA从低电平切换到高电平
 
@@ -80,3 +83,46 @@
 * AT24C02的固定地址为1010，可配置地址本开发板上为000所以SLAVE ADDRESS+W为0xA0，SLAVE ADDRESS+R为0xA1
 
 ![I2C读写AT24C02数据](./images/i2c_at24c02.png)
+
+
+```c
+// 正确写法
+void i2c_start()
+{
+    I2C_SDA = 1;
+    // 这里要严格按照I2C的顺序来写
+    // 只有SCL在高电平下才会处理SDA相关顺序
+    I2C_SCL = 1;
+    I2C_SDA = 0;
+    I2C_SCL = 0;
+}
+
+
+// 错误写法
+void i2c_start()
+{
+    I2C_SDA = 1;
+    I2C_SCL = 1;
+    
+    // 这里顺序错就会引起问题
+    I2C_SCL = 0;
+    I2C_SDA = 0;
+}
+
+// 在SCL拉高电平之前可以更改SDA，顺序如果写成
+/*
+ *  I2C_SCL = 1;
+ *  I2C_SDA = data & (0x80 >> i);
+ *
+ *  这样是无法正确写入数据的
+ */
+I2C_SDA = data & (0x80 >> i);
+I2C_SCL = 1;
+I2C_SCL = 0;
+
+
+// 错误写法 一定要注意I2C的规则
+I2C_SCL = 1;
+I2C_SDA = data & (0x80 >> i);
+I2C_SCL = 0;
+```
