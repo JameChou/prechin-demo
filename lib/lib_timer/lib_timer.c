@@ -27,3 +27,19 @@ void timer_0_initer()
     // 溢出位最大8bit
     TH0 = 0xFC;
 }
+
+void timer_1_initer()
+{
+    TMOD &= 0x0F;
+    TMOD |= 0x10;
+
+    ET1 = 1;
+    EA = 1;
+    
+    TF1 = 0;
+    TR1 = 1;
+
+    // 50ms处理一次中断 从15536开始计数
+	TL1 = 0xB0;		//设置定时初值
+	TH1 = 0x3C;
+}
