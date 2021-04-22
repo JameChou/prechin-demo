@@ -1,0 +1,6 @@
+#ifndef E51_LIB_DS18B20_H
+#define E51_LIB_DS18B20_H
+
+
+
+#endif E51_LIB_DS18B20_H
