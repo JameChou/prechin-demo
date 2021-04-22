@@ -27,6 +27,7 @@ void main(void)
 
     lcd_show_string(1, 6, "ms");
     lcd_show_string(2, 6, "us");
+    lcd_show_string(1, 12, "km/h");
 
     TR1 = 0;
     
@@ -55,6 +56,9 @@ void int1_routine() __interrupt 2
 
     lcd_show_int_num(1, 1, counter * 50, 5);
     lcd_show_int_num(2, 1, v, 5);
+
+    unsigned int speed = (1.5 / ((counter + v / 1000.0) / 1000)) * 0.036;
+    lcd_show_int_num(1, 10, speed, 2);
 }
 
 void timer_counter() __interrupt 3
